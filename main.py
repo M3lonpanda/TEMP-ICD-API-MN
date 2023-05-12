@@ -22,7 +22,7 @@ def preview():
     return result
 
 @app.route('/serviceyear/<value>', methods=['GET'])
-def icdcode(value):
+def serviceyear(value):
     print('value:', value)
     filtered = df[df['service_year'] == value]
     if len(filtered) <= 0:
@@ -31,7 +31,7 @@ def icdcode(value):
         return filtered.to_json(orient="records")
         
 @app.route('/serviceyear/<value>/sex/<value2>')
-def icdcode2(value, value2):
+def serviceyear2(value, value2):
     filtered = df[df['service_year'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
